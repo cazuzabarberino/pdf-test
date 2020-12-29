@@ -13,7 +13,7 @@ export default function PdfViewer({ data }) {
     (pageNum, pdf = pdfRef) => {
       pdf &&
         pdf.getPage(pageNum).then(function (page) {
-          const viewport = page.getViewport({ scale: 1.5 });
+          const viewport = page.getViewport({ scale: window.innerWidth / 595 });
           const canvas = canvasRef.current;
           canvas.height = viewport.height;
           canvas.width = viewport.width;
